@@ -1,0 +1,41 @@
+Windows Firewall Configuration and Testing Report
+
+Step 1: Open Firewall Configuration Tool
+On Windows, open the Control Panel → System and Security → Windows Defender Firewall →Advanced settings. 
+This opens the 'Windows Defender Firewall with Advanced Security' tool, whereinbound and outbound rules can be configured.
+
+
+Step 2: List Current Firewall Rules
+In the left panel, click on 'Inbound Rules' or 'Outbound Rules' to see all existing firewall rules. 
+You can check which applications or ports are allowed or blocked.
+
+
+Step 3: Add Rule to Block a Specific Port (Example: 23 - Telnet)
+Click 'Inbound Rules' → 'New Rule' → Select 'Port' → Choose TCP → Enter port number 23 →Select 'Block the connection' → Apply to all profiles → Give it a name like 'Block Telnet'.
+This will prevent any incoming Telnet traffic on port 23.
+
+
+Step 4: Test the Rule
+Try connecting to port 23 locally or from another computer using 'telnet 23'. If the rule is active, 
+the connection should fail.
+
+
+Step 5: Allow SSH (Port 22)
+If SSH is needed, create a new inbound rule for port 22 (TCP) and select 'Allow the connection'.
+This is useful if running an OpenSSH server on Windows.
+
+
+Step 6: Remove the Test Block Rule
+Go back to 'Inbound Rules', find the 'Block Telnet' rule, right-click, and choose 'Delete' or 'Disable'
+to restore the original state.
+
+
+Step 7: Document Commands or GUI Steps Used
+Document posted in this repository
+
+
+Step 8: Summary – How Firewall Filters Traffic
+A firewall monitors and controls incoming and outgoing network traffic based on predefined rules.
+Inbound rules control what can come into your computer, and outbound rules control what can
+leave it. By setting these rules, administrators can block dangerous services (e.g., Telnet) and allow
+necessary ones (e.g., SSH).
